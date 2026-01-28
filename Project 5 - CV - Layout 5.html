@@ -1,0 +1,855 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Full-Stack Developer CV – .NET & JavaScript Specialist</title>
+
+    <style>
+      /* ===================================================================
+       🎨 THEME TOKENS
+    =================================================================== */
+      :root {
+        --bg: #f7f7fb;
+        --ink: #0f172a;
+        --muted: #6b7280;
+        --card: #ffffff;
+        --line: #e5e7eb;
+        --accent: #2563eb; /* Blue for .NET/C# */
+        --accent-2: #059669; /* Green for JavaScript/Full-Stack */
+
+        --radius: 18px;
+        --shadow: 0 10px 28px rgba(2, 6, 23, 0.08);
+        --space-1: 6px;
+        --space-2: 10px;
+        --space-3: 14px;
+        --space-4: 20px;
+        --space-5: 28px;
+        --space-6: 40px;
+        --frame: 1180px;
+        --rail-w: 120px;
+      }
+
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --bg: #0b1220;
+          --ink: #e5e7eb;
+          --muted: #9aa3b2;
+          --card: #0f172a;
+          --line: #1f2a44;
+          --shadow: none;
+        }
+      }
+
+      /* ===================================================================
+       🧱 BASE
+    =================================================================== */
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        font:
+          16px/1.6 system-ui,
+          -apple-system,
+          Segoe UI,
+          Roboto,
+          Arial,
+          sans-serif;
+        color: var(--ink);
+        background: var(--bg);
+      }
+
+      img {
+        max-width: 100%;
+        display: block;
+      }
+
+      a {
+        color: var(--accent);
+        text-decoration: none;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+
+      .muted {
+        color: var(--muted);
+      }
+
+      .skill-level {
+        display: inline-block;
+        width: 80px;
+        height: 6px;
+        background: var(--line);
+        border-radius: 3px;
+        margin-left: 8px;
+        vertical-align: middle;
+      }
+
+      .skill-level.fill {
+        background: var(--accent-2);
+        height: 100%;
+        border-radius: 3px;
+      }
+
+      /* ===================================================================
+       📰 PAGE FRAME
+    =================================================================== */
+      .wrap {
+        max-width: var(--frame);
+        margin: 40px auto;
+        padding: 0 var(--space-4);
+      }
+
+      .frame {
+        display: grid;
+        grid-template-columns: var(--rail-w) 1fr;
+        gap: var(--space-5);
+        align-items: start;
+      }
+
+      @media (max-width: 900px) {
+        .frame {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* ===================================================================
+       🧭 LEFT RAIL
+    =================================================================== */
+      .rail {
+        position: static;
+        height: fit-content;
+      }
+
+      .rail .year {
+        font-weight: 800;
+        font-size: 18px;
+        letter-spacing: 0.8px;
+        margin: 0 0 10px;
+      }
+
+      .rail .dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--accent);
+        display: inline-block;
+        margin-right: 8px;
+      }
+
+      .rail .years {
+        border-left: 2px solid var(--line);
+        padding-left: 14px;
+        display: grid;
+        gap: 10px;
+      }
+
+      .rail a {
+        color: inherit;
+      }
+
+      .rail .links {
+        margin-top: var(--space-5);
+        display: grid;
+        gap: 8px;
+      }
+
+      .rail .links a {
+        font-size: 14px;
+      }
+
+      .rail a.year-link {
+        display: inline-block;
+        padding: 2px 8px;
+        border-radius: 999px;
+        border: 1px solid transparent;
+        transition:
+          border-color 0.2s,
+          background-color 0.2s;
+      }
+
+      .rail a.year-link:hover {
+        border-color: var(--line);
+      }
+
+      .frame:has(#y2024:target) .rail a[href="#y2024"],
+      .frame:has(#y2023:target) .rail a[href="#y2023"] {
+        background: color-mix(in srgb, var(--accent-2) 12%, transparent);
+        border-color: var(--accent-2);
+      }
+
+      /* ===================================================================
+       🧷 MASTHEAD
+    =================================================================== */
+      .masthead {
+        background:
+          linear-gradient(
+            135deg,
+            color-mix(in srgb, var(--accent) 10%, #0000),
+            color-mix(in srgb, var(--accent-2) 10%, #0000)
+          ),
+          var(--card);
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+        overflow: hidden;
+      }
+
+      .mast {
+        display: grid;
+        grid-template-columns: 140px 1fr;
+        gap: var(--space-4);
+        padding: var(--space-5);
+        align-items: center;
+      }
+
+      @media (max-width: 720px) {
+        .mast {
+          grid-template-columns: 1fr;
+          text-align: center;
+          justify-items: center;
+        }
+      }
+
+      .avatar {
+        width: 140px;
+        aspect-ratio: 1/1;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 10px 24px rgba(0, 0, 0, 0.1);
+      }
+
+      .avatar img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+      }
+
+      @media (max-width: 720px) {
+        .avatar {
+          margin: 0 auto var(--space-4);
+        }
+      }
+
+      .title {
+        border-left: 4px solid var(--accent);
+        padding-left: var(--space-4);
+      }
+
+      @media (max-width: 720px) {
+        .title {
+          border-left: 0;
+          padding-left: 0;
+        }
+      }
+
+      .title h1 {
+        margin: 0;
+        font-size: clamp(32px, 6vw, 48px);
+        line-height: 1.1;
+      }
+
+      .title p {
+        margin: 8px 0 0;
+        font-size: 18px;
+      }
+
+      .meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px 16px;
+        margin-top: 10px;
+        font-size: 14px;
+      }
+
+      @media (max-width: 720px) {
+        .meta {
+          justify-content: center;
+        }
+      }
+
+      .tag {
+        display: inline-block;
+        padding: 4px 10px;
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        background: var(--card);
+      }
+
+      /* ===================================================================
+       📌 SECTION CARDS
+    =================================================================== */
+      .section {
+        margin-top: var(--space-5);
+      }
+
+      .card {
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+        padding: var(--space-5);
+      }
+
+      .card h2 {
+        margin: 0 0 12px;
+        font-size: 22px;
+        text-transform: uppercase;
+        letter-spacing: 0.4px;
+        color: var(--muted);
+      }
+
+      /* === EXPERIENCE =================================================== */
+      .exp {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: var(--space-4);
+      }
+
+      .job {
+        padding-bottom: 12px;
+        border-bottom: 1px dashed var(--line);
+        scroll-margin-top: 90px;
+      }
+
+      .job:last-child {
+        border-bottom: 0;
+      }
+
+      .role {
+        font-weight: 800;
+      }
+
+      .where {
+        color: var(--muted);
+      }
+
+      .when {
+        margin-left: auto;
+        color: var(--muted);
+        font-size: 14px;
+      }
+
+      /* === ABOUT ======================================================= */
+      .lead {
+        font-size: 20px;
+        line-height: 1.7;
+        color: var(--muted);
+        border-left: 4px solid var(--accent-2);
+        padding-left: 14px;
+      }
+
+      /* === SKILLS ====================================================== */
+      .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: var(--space-4);
+      }
+
+      .skill-category h3 {
+        margin: 0 0 12px;
+        font-size: 18px;
+        color: var(--accent);
+      }
+
+      .skill-item {
+        margin-bottom: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .skill-name {
+        font-weight: 500;
+      }
+
+      /* === PROJECTS ==================================================== */
+      .projects {
+        column-count: 2;
+        column-gap: var(--space-4);
+      }
+
+      @media (max-width: 880px) {
+        .projects {
+          column-count: 1;
+        }
+      }
+
+      .proj {
+        break-inside: avoid;
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        padding: 14px;
+        margin: 0 0 var(--space-4);
+        background: var(--card);
+      }
+
+      .proj h3 {
+        margin: 0 0 6px;
+        font-size: 16px;
+        text-transform: uppercase;
+        letter-spacing: 0.3px;
+        color: var(--muted);
+      }
+
+      .tech-stack {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        margin-top: 10px;
+      }
+
+      .tech-tag {
+        font-size: 12px;
+        padding: 2px 8px;
+        background: color-mix(in srgb, var(--accent) 10%, transparent);
+        border-radius: 4px;
+      }
+
+      /* === EDUCATION =================================================== */
+      .edu-item {
+        margin-bottom: var(--space-4);
+        padding-bottom: var(--space-3);
+        border-bottom: 1px dashed var(--line);
+      }
+
+      .edu-item:last-child {
+        border-bottom: 0;
+      }
+
+      .edu-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        flex-wrap: wrap;
+        margin-bottom: 6px;
+      }
+
+      .edu-degree {
+        margin: 0;
+        font-size: 18px;
+      }
+
+      .edu-years {
+        color: var(--muted);
+        font-size: 14px;
+      }
+
+      .edu-institution {
+        font-weight: 600;
+        margin-bottom: 4px;
+      }
+
+      /* ===================================================================
+       📱 MOBILE
+    =================================================================== */
+      @media (max-width: 900px) {
+        .rail {
+          display: none;
+        }
+      }
+
+      /* ===================================================================
+       🖨️ PRINT
+    =================================================================== */
+      @media print {
+        .wrap {
+          margin: 0;
+        }
+
+        .masthead,
+        .card {
+          box-shadow: none;
+        }
+
+        a {
+          color: #000;
+          text-decoration: none;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <main class="wrap">
+      <!-- ============================================================
+         HEADER / MASTHEAD
+    ============================================================= -->
+      <header class="masthead">
+        <div class="mast">
+          <div class="avatar">
+            <img
+              src="images/MyImage.jpeg"
+              alt="Your Name portrait"
+              loading="lazy"
+            />
+          </div>
+          <div>
+            <div class="title">
+              <h1>zouablia abd elhak</h1>
+              <p>Full-Stack Developer • .NET & JavaScript Specialist</p>
+            </div>
+            <div class="meta">
+              <span class="tag">Amman, Jordan</span>
+              <span class="tag">your.email@example.com</span>
+              <a
+                class="tag"
+                href="https://github.com/yourusername"
+                target="_blank"
+                >GitHub</a
+              >
+              <a
+                class="tag"
+                href="https://linkedin.com/in/yourusername"
+                target="_blank"
+                >LinkedIn</a
+              >
+              <a
+                class="tag"
+                href="https://programmingadvices.com/"
+                target="_blank"
+                >ProgrammingAdvices</a
+              >
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <div class="frame">
+        <!-- ============================================================
+           LEFT RAIL
+      ============================================================= -->
+        <aside class="rail" aria-label="Year rail + links">
+          <div class="years">
+            <p class="year">
+              <span class="dot"></span
+              ><a class="year-link" href="#y2024">2024</a>
+            </p>
+            <p class="year">
+              <span class="dot"></span
+              ><a class="year-link" href="#y2023">2023</a>
+            </p>
+          </div>
+          <div class="links" aria-label="Quick links">
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#education">Education</a>
+          </div>
+        </aside>
+
+        <!-- ============================================================
+           CONTENT COLUMN
+      ============================================================= -->
+        <section aria-label="Content column">
+          <!-- ABOUT -->
+          <article
+            id="about"
+            class="section card"
+            aria-labelledby="about-title"
+          >
+            <h2 id="about-title">About Me</h2>
+            <p class="lead">
+              Passionate Full-Stack Developer with 1.5 years of intensive
+              programming study. Skilled in both front-end (HTML, CSS,
+              JavaScript) and back-end (C#, .NET) development, with hands-on
+              experience in desktop application development using XAML and MVVM
+              patterns. Strong foundation in database management with EF Core.
+              Committed to writing clean, maintainable code and continuously
+              learning new technologies.
+            </p>
+          </article>
+
+          <!-- EXPERIENCE -->
+          <article class="section card" aria-labelledby="exp-title">
+            <h2 id="exp-title">Learning Journey & Experience</h2>
+
+            <div class="exp">
+              <!-- 2024 -->
+              <div class="job" id="y2024" aria-labelledby="y2024-title">
+                <div
+                  style="
+                    display: flex;
+                    gap: 12px;
+                    align-items: baseline;
+                    flex-wrap: wrap;
+                  "
+                >
+                  <div class="role" id="y2024-title">
+                    Advanced Programming Studies
+                  </div>
+                  <div class="where">Self-Directed Learning • Online</div>
+                  <div class="when">2024</div>
+                </div>
+                <ul class="muted">
+                  <li>
+                    Mastered Entity Framework Core for database management and
+                    ORM operations
+                  </li>
+                  <li>
+                    Developed desktop applications using XAML with MVVM
+                    architecture pattern
+                  </li>
+                  <li>
+                    Completed comprehensive front-end curriculum including
+                    advanced JavaScript concepts
+                  </li>
+                  <li>
+                    Built full-stack applications integrating C# back-end with
+                    modern front-end technologies
+                  </li>
+                </ul>
+                <p><a href="#about">↑ Back to top</a></p>
+              </div>
+
+              <!-- 2023 -->
+              <div class="job" id="y2023" aria-labelledby="y2023-title">
+                <div
+                  style="
+                    display: flex;
+                    gap: 12px;
+                    align-items: baseline;
+                    flex-wrap: wrap;
+                  "
+                >
+                  <div class="role" id="y2023-title">
+                    Programming Foundations
+                  </div>
+                  <div class="where">
+                    ProgrammingAdvices.com • Online Platform
+                  </div>
+                  <div class="when">2023 — 2024</div>
+                </div>
+                <ul class="muted">
+                  <li>
+                    Completed all programming courses covering fundamental to
+                    advanced concepts
+                  </li>
+                  <li>
+                    Developed proficiency in C# programming language and .NET
+                    ecosystem
+                  </li>
+                  <li>
+                    Gained solid understanding of HTML5, CSS3, and modern
+                    JavaScript (ES6+)
+                  </li>
+                  <li>
+                    Learned software development principles, debugging, and
+                    problem-solving techniques
+                  </li>
+                  <li>
+                    Practiced version control with Git and collaborative
+                    development workflows
+                  </li>
+                </ul>
+                <p><a href="#about">↑ Back to top</a></p>
+              </div>
+            </div>
+          </article>
+
+          <!-- SKILLS -->
+          <article
+            id="skills"
+            class="section card"
+            aria-labelledby="skills-title"
+          >
+            <h2 id="skills-title">Technical Skills</h2>
+            <div class="skills-grid">
+              <div class="skill-category">
+                <h3>Front-End Development</h3>
+                <div class="skill-item">
+                  <span class="skill-name">HTML5 & Semantic HTML</span>
+                  <span class="skill-level"
+                    ><span class="fill" style="width: 90%"></span
+                  ></span>
+                </div>
+                <div class="skill-item">
+                  <span class="skill-name">CSS3 & Responsive Design</span>
+                  <span class="skill-level"
+                    ><span class="fill" style="width: 85%"></span
+                  ></span>
+                </div>
+                <div class="skill-item">
+                  <span class="skill-name">JavaScript (ES6+)</span>
+                  <span class="skill-level"
+                    ><span class="fill" style="width: 80%"></span
+                  ></span>
+                </div>
+              </div>
+
+              <div class="skill-category">
+                <h3>Back-End & Desktop</h3>
+                <div class="skill-item">
+                  <span class="skill-name">C# Programming</span>
+                  <span class="skill-level"
+                    ><span class="fill" style="width: 85%"></span
+                  ></span>
+                </div>
+                <div class="skill-item">
+                  <span class="skill-name">XAML & MVVM Pattern</span>
+                  <span class="skill-level"
+                    ><span class="fill" style="width: 80%"></span
+                  ></span>
+                </div>
+                <div class="skill-item">
+                  <span class="skill-name">Entity Framework Core</span>
+                  <span class="skill-level"
+                    ><span class="fill" style="width: 75%"></span
+                  ></span>
+                </div>
+              </div>
+
+              <div class="skill-category">
+                <h3>Tools & Methodologies</h3>
+                <div class="skill-item">
+                  <span class="skill-name">Git & Version Control</span>
+                  <span class="skill-level"
+                    ><span class="fill" style="width: 80%"></span
+                  ></span>
+                </div>
+                <div class="skill-item">
+                  <span class="skill-name">Problem Solving</span>
+                  <span class="skill-level"
+                    ><span class="fill" style="width: 85%"></span
+                  ></span>
+                </div>
+                <div class="skill-item">
+                  <span class="skill-name">Software Architecture</span>
+                  <span class="skill-level"
+                    ><span class="fill" style="width: 75%"></span
+                  ></span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- PROJECTS -->
+          <article
+            id="projects"
+            class="section card"
+            aria-labelledby="proj-title"
+          >
+            <h2 id="proj-title">Personal Projects</h2>
+            <div class="projects">
+              <div class="proj">
+                <h3>Inventory Management System</h3>
+                <p class="muted">
+                  Desktop application built with WPF, XAML, and MVVM pattern.
+                  Features include product tracking, sales management, and
+                  reporting.
+                </p>
+                <div class="tech-stack">
+                  <span class="tech-tag">C#</span>
+                  <span class="tech-tag">XAML</span>
+                  <span class="tech-tag">MVVM</span>
+                  <span class="tech-tag">EF Core</span>
+                  <span class="tech-tag">SQL Server</span>
+                </div>
+              </div>
+
+              <div class="proj">
+                <h3>E-Commerce Web Application</h3>
+                <p class="muted">
+                  Full-stack web application with product catalog, shopping
+                  cart, and user authentication. Front-end built with
+                  HTML/CSS/JavaScript, back-end with C#.
+                </p>
+                <div class="tech-stack">
+                  <span class="tech-tag">HTML5</span>
+                  <span class="tech-tag">CSS3</span>
+                  <span class="tech-tag">JavaScript</span>
+                  <span class="tech-tag">C#</span>
+                  <span class="tech-tag">.NET</span>
+                </div>
+              </div>
+
+              <div class="proj">
+                <h3>Student Portal System</h3>
+                <p class="muted">
+                  Web-based portal for student management with course
+                  registration, grades viewing, and communication features.
+                </p>
+                <div class="tech-stack">
+                  <span class="tech-tag">ASP.NET Core</span>
+                  <span class="tech-tag">Entity Framework</span>
+                  <span class="tech-tag">JavaScript</span>
+                  <span class="tech-tag">Bootstrap</span>
+                </div>
+              </div>
+
+              <div class="proj">
+                <h3>Personal Portfolio Website</h3>
+                <p class="muted">
+                  Responsive portfolio website showcasing projects and skills
+                  with modern design and smooth animations.
+                </p>
+                <div class="tech-stack">
+                  <span class="tech-tag">HTML5</span>
+                  <span class="tech-tag">CSS3</span>
+                  <span class="tech-tag">JavaScript</span>
+                  <span class="tech-tag">Responsive Design</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- EDUCATION -->
+          <article id="education" class="section card">
+            <h2>Education & Certifications</h2>
+            <div class="edu-list">
+              <div class="edu-item">
+                <div class="edu-header">
+                  <h3 class="edu-degree">Complete Programming Curriculum</h3>
+                  <span class="edu-years">2023 — 2024</span>
+                </div>
+                <div class="edu-institution">ProgrammingAdvices.com</div>
+                <p class="edu-highlights muted">
+                  Mastered comprehensive programming concepts including C#,
+                  JavaScript, HTML, CSS, and software development principles.
+                  Completed all course modules with practical projects.
+                </p>
+              </div>
+
+              <div class="edu-item">
+                <div class="edu-header">
+                  <h3 class="edu-degree">Desktop Application Development</h3>
+                  <span class="edu-years">2024</span>
+                </div>
+                <div class="edu-institution">Self-Study (XAML & MVVM)</div>
+                <p class="edu-highlights muted">
+                  Specialized in Windows desktop application development using
+                  XAML for UI design and MVVM architecture pattern for
+                  separation of concerns.
+                </p>
+              </div>
+
+              <div class="edu-item">
+                <div class="edu-header">
+                  <h3 class="edu-degree">Database Management with EF Core</h3>
+                  <span class="edu-years">2024</span>
+                </div>
+                <div class="edu-institution">Advanced .NET Studies</div>
+                <p class="edu-highlights muted">
+                  Learned Entity Framework Core for object-relational mapping,
+                  database migrations, and efficient data access patterns in
+                  .NET applications.
+                </p>
+              </div>
+            </div>
+          </article>
+        </section>
+      </div>
+    </main>
+  </body>
+</html>
